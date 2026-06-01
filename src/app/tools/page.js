@@ -12,7 +12,7 @@ const tools = [
     description: 'Comprehensive platform for managing institutional operations, staff, and resources efficiently.',
     category: 'Operations',
     status: 'active',
-    link: '/tools/management-system',
+    link: '/tools/inventorysystem',
   },
   {
     name: 'Student Information System',

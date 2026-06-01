@@ -7,12 +7,16 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/tools/management-system',
-        destination: 'https://management-system-coder-vedanshs-projects.vercel.app', // Base route
+        source: '/tools/inventorysystem',
+        destination: 'https://management-system-coder-vedanshs-projects.vercel.app', 
       },
       {
-        source: '/tools/management-system/:path*',
-        destination: 'https://management-system-coder-vedanshs-projects.vercel.app/:path*', // All sub-routes
+        source: '/tools/inventorysystem/:path*',
+        destination: 'https://management-system-coder-vedanshs-projects.vercel.app/:path*', 
+      },
+      {
+        source: '/assets/:path*',
+        destination: 'https://management-system-coder-vedanshs-projects.vercel.app/assets/:path*', 
       },
     ];
   },
