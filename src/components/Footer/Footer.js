@@ -8,7 +8,7 @@ const quickLinks = [
 
 const toolsLinks = [
   { label: 'All Tools', href: '/tools/' },
-  { label: 'Management System', href: 'https://www.samyukt.co.in/tools/management-system' },
+  { label: 'Management System', href: '/tools/inventorysystem' },
 ];
 
 const servicesLinks = [

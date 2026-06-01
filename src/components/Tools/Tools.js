@@ -11,7 +11,7 @@ const tools = [
       'Comprehensive platform for managing institutional operations, staff, and resources efficiently.',
     category: 'Operations',
     status: 'active',
-    link: 'https://www.samyukt.co.in/tools/management-system',
+    link: '/tools/inventorysystem',
   },
   {
     name: 'Student Information System',
