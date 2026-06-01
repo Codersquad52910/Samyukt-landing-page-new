@@ -1,0 +1,189 @@
+/* ============================================================
+   Ecosystem Tree Diagram
+   ============================================================ */
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Root Node --- */
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-10);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-accent-subtle);
+}
+
+.rootLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
+}
+
+/* --- Stems (vertical connecting lines) --- */
+.stem {
+  width: 1.5px;
+  height: 40px;
+  background-color: var(--color-border-hover);
+}
+
+/* --- Branches Container --- */
+.branches {
+  display: flex;
+  gap: var(--space-16);
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Horizontal connector between branches */
+.branches::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(50% + var(--space-8));
+  max-width: 420px;
+  height: 1.5px;
+  background-color: var(--color-border-hover);
+}
+
+/* --- Branch --- */
+.branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 320px;
+}
+
+/* Branch vertical connector from horizontal line */
+.branch::before {
+  content: '';
+  width: 1.5px;
+  height: 20px;
+  background-color: var(--color-border-hover);
+}
+
+.branchNode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.branchLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+}
+
+.branchStem {
+  width: 1.5px;
+  height: 24px;
+  background-color: var(--color-border-hover);
+}
+
+/* --- Leaf Nodes --- */
+.leaves {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.leaf {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.leaf:hover {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .branches {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+  /* Hide horizontal connector on mobile */
+  .branches::before {
+    display: none;
+  }
+
+  .branch {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Replace branch top connector with a stem-like spacing */
+  .branch::before {
+    height: 24px;
+  }
+
+  .leaves {
+    gap: var(--space-2);
+  }
+
+  .root {
+    padding: var(--space-3) var(--space-8);
+  }
+
+  .rootLabel {
+    font-size: var(--text-lg);
+  }
+
+  .stem {
+    height: 28px;
+  }
+
+  .branchStem {
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaf {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+  }
+
+  .branch {
+    max-width: 260px;
+  }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.samyukt.co.in/sitemap.xml

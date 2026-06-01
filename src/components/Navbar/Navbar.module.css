@@ -1,0 +1,171 @@
+/* ─── Header ─────────────────────────────────────────── */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.header.scrolled {
+  background: var(--color-surface);
+  border-bottom-color: var(--color-border);
+}
+
+/* ─── Inner nav container ────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height, 64px);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Logo ───────────────────────────────────────────── */
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+/* ─── Desktop links ──────────────────────────────────── */
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  line-height: 1;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+/* ─── Hamburger button ───────────────────────────────── */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Animate to X */
+.hamburgerOpen .hamburgerLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Mobile menu ────────────────────────────────────── */
+
+.mobileMenu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  background: var(--color-surface);
+  border-bottom: 1px solid transparent;
+  transition: max-height 0.3s ease, border-color 0.3s ease;
+}
+
+.mobileMenuOpen {
+  max-height: 320px;
+  border-bottom-color: var(--color-border);
+}
+
+.mobileLinks {
+  list-style: none;
+  margin: 0;
+  padding: 8px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileLink {
+  display: block;
+  padding: 12px 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  transition: color 0.15s ease;
+}
+
+.mobileLink:hover {
+  color: var(--color-accent);
+}
+
+.mobileLinks li:last-child .mobileLink {
+  border-bottom: none;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .logoImage {
+    height: 30px;
+  }
+}
